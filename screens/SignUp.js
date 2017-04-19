@@ -1,5 +1,5 @@
 // screens/SignUp.js
-
+import { Actions } from 'react-native-router-flux';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
@@ -58,10 +58,18 @@ class SignUp extends Component {
           />
 
           <TouchableHighlight
-            style={styles.button}
+            style={styles.buttonPrimary}
             onPress={this.onSubmit}
             underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Sign up</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight
+            style={styles.buttonSecondary}
+            onPress={Actions.signIn}
+            underlayColor='#99d9f4'
+          >
+            <Text style={styles.buttonText}>Go to Sign in</Text>
           </TouchableHighlight>
 
         </KeyboardAvoidingView>

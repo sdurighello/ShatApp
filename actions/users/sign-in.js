@@ -32,6 +32,7 @@ export default (user) => {
           type: USER_AUTH_ERROR,
           payload: error
         })
+        Actions.signUp();
       });
   }
 }

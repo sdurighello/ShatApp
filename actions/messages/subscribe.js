@@ -1,4 +1,5 @@
 // actions/messages/subscribe.js
+import { Actions } from 'react-native-router-flux';
 import API from '../../lib/api'
 import { history } from '../../store'
 import { CALL_API, FIND } from '../../middleware/api'
@@ -40,6 +41,10 @@ export default () => {
         messages.on('updated', (message) => { dispatch(updatedMessage(message)) })
         messages.on('patched', (message) => { dispatch(updatedMessage(message)) })
         messages.on('removed', (message) => { dispatch(removedMessage(message)) })
+      })
+      .catch((error) => {
+        console.log('api.authenticate', error)
+        Actions.signUp()
       })
 
     dispatch({

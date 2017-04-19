@@ -85,7 +85,7 @@ class SignIn extends Component {
               onPress={Actions.signUp}
               underlayColor='#99d9f4'
             >
-              <Text style={styles.buttonText}>Sign up</Text>
+              <Text style={styles.buttonText}>Go to Sign up</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
