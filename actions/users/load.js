@@ -6,10 +6,12 @@ export default () => {
   return (dispatch) => {
     AsyncStorage.getItem('chatUser')
       .then((result) => {
-        console.log(result);
+        const user = JSON.parse(result);
+        if (!!user) Actions.chatRoom();
+        console.log(user);
         dispatch({
           type: USER_LOADED_FROM_STORAGE,
-          payload: JSON.parse(result)
+          payload: user
         });
       })
       .catch((error) => {

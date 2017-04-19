@@ -12,14 +12,16 @@ import t from 'tcomb-form-native';
 import User, { formOptions } from '../models/User';
 import loadUser from '../actions/users/load';
 import signIn from '../actions/users/sign-in';
+import signOut from '../actions/users/sign-out';
 import styles from './SignUp.styles';
 
-class SignUp extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.logOut = this.logOut.bind(this);
 
     this.state = { user: props.user };
   }
@@ -43,6 +45,10 @@ class SignUp extends Component {
     if (!user) return;
     console.log(user);
     this.props.signIn(user);
+  }
+
+  logOut() {
+    this.props.signOut('user');
   }
 
   render() {
@@ -82,6 +88,24 @@ class SignUp extends Component {
               <Text style={styles.buttonText}>Sign up</Text>
             </TouchableHighlight>
 
+            <TouchableHighlight
+              disabled={loading}
+              style={styles.button}
+              onPress={Actions.chatRoom}
+              underlayColor='#99d9f4'
+            >
+              <Text style={styles.buttonText}>Chat room</Text>
+            </TouchableHighlight>
+
+            <TouchableHighlight
+              disabled={loading}
+              style={styles.buttonPrimary}
+              onPress={this.logOut}
+              underlayColor='#99d9f4'
+            >
+              <Text style={styles.buttonText}>Log out</Text>
+            </TouchableHighlight>
+
         </KeyboardAvoidingView>
       </View>
     );
@@ -90,4 +114,4 @@ class SignUp extends Component {
 
 const mapStateToProps = ({ user, loading }) => ({ user, loading });
 
-export default connect(mapStateToProps, { loadUser, signIn })(SignUp);
+export default connect(mapStateToProps, { loadUser, signIn, signOut })(SignIn);
