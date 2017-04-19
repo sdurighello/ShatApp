@@ -48,7 +48,7 @@ class SignIn extends Component {
   }
 
   logOut() {
-    this.props.signOut('user');
+    this.props.signOut();
   }
 
   render() {

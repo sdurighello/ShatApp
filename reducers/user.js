@@ -1,7 +1,7 @@
 // reducers/user.js
 import { USER_LOADED_FROM_STORAGE } from '../actions/users/load';
 import { USER_SIGNUP_ERROR } from '../actions/users/sign-up';
-import { USER_SIGNED_IN, USER_AUTH_ERROR, GO_TO_CHATROOM } from '../actions/users/sign-in';
+import { USER_SIGNED_IN, USER_AUTH_ERROR } from '../actions/users/sign-in';
 import { USER_SIGNED_OUT } from '../actions/users/sign-out';
 import { AsyncStorage } from 'react-native';
 

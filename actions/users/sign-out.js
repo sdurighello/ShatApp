@@ -6,7 +6,7 @@ export const USER_SIGNED_OUT = 'USER_SIGNED_OUT';
 const api = new API();
 const users = api.service('users');
 
-export default (user) => {
+export default () => {
   return (dispatch) =>{
     api.signOut();
     dispatch(signedOutUser());
